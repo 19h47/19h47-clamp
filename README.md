@@ -5,7 +5,7 @@
 ```javascript
 import clamp from '@19h47/clamp';
 
-sum(100, 0, 50); // 50
+clamp(100, 0, 50); // 50
 ```
 
 ## Test
