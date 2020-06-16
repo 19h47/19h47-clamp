@@ -1,0 +1,17 @@
+{
+	"name": "@19h47/clamp",
+	"version": "0.0.0",
+	"description": "Clamps a value between an upper and lower bound",
+	"main": "index.js",
+	"repository": "https://github.com/19h47/19h47-clamp",
+	"author": "Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)",
+	"license": "MIT",
+	"dependencies": {
+		"@19h47/prettier-config": "^1.0.0",
+		"@babel/preset-env": "^7.10.2",
+		"jest": "^26.0.1"
+	},
+	"scripts": {
+		"test": "jest"
+	}
+}
