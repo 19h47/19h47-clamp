@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Clamp</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/></head><body><div class="container"><div class="row"><div class="col-12 my-5"><h1><a href="https://github.com/19h47/19h47-multiply">Clamp</a></h1></div></div><div class="row"><div class="col-12"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text">Clamp</span></div><input class="form-control js-value" type="number" value="10"/><div class="input-group-append"><span class="input-group-text border-right-0">between</span></div><input class="form-control js-min" type="number" value="2"/><div class="input-group-append"><span class="input-group-text border-right-0">and</span></div><input class="form-control js-max" type="number" value="4"/><div class="input-group-append"><span class="input-group-text border-right-0">=</span></div><input class="form-control js-result" type="number" value="4" readonly="readonly"/></div></div></div></div><script src="./main.js"></script><script>const $value = document.querySelector('.js-value');
+			const $min = document.querySelector('.js-min');
+			const $max = document.querySelector('.js-max');
+			const $result = document.querySelector('.js-result');
+
+			$value.addEventListener('input', event => {
+				const value = event.target.value;
+				const min = $min.value;
+				const max = $max.value;
+
+				$result.value = clamp.default(value, min, max);
+			});
+
+			$min.addEventListener('input', event => {
+				const value = $value.value;
+				const min = event.target.value;
+				const max = $max.value;
+
+				$result.value = clamp.default(value, min, max);
+			});
+
+			$max.addEventListener('input', event => {
+				const value = $value.value;
+				const min = $min.value;
+				const max = event.target.value;
+
+				$result.value = clamp.default(value, min, max);
+			});</script></body></html>
