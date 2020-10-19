@@ -14,7 +14,7 @@ module.exports = {
 	watch: false,
 	plugins: [
 		new CopyPlugin({
-			patterns: [{ from: resolve('clamp.png'), to: resolve('docs/') }],
+			patterns: [{ from: resolve('level-slider.png'), to: resolve('docs/') }],
 		}),
 	],
 };
