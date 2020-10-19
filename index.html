@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Clamp</title>
+		<link rel="icon" type="image/png" href="clamp.png" />
 		<link
 			rel="stylesheet"
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -17,32 +18,37 @@
 			<div class="row">
 				<div class="col-12 my-5">
 					<h1>
-						<a href="https://github.com/19h47/19h47-clamp">
-							Clamp
-						</a>
+						<a href="https://github.com/19h47/19h47-clamp"> Clamp </a>
 					</h1>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-12">
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text">Clamp</span>
+					<div class="border p-3">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">Clamp</span>
+							</div>
+							<input class="form-control js-value" type="number" value="10" />
+							<div class="input-group-append">
+								<span class="input-group-text border-right-0">between</span>
+							</div>
+							<input class="form-control js-min" type="number" value="2" />
+							<div class="input-group-append">
+								<span class="input-group-text border-right-0">and</span>
+							</div>
+							<input class="form-control js-max" type="number" value="4" />
+							<div class="input-group-append">
+								<span class="input-group-text border-right-0">=</span>
+							</div>
+							<input
+								class="form-control js-result"
+								type="number"
+								value="4"
+								readonly
+							/>
 						</div>
-						<input class="form-control js-value" type="number" value="10" />
-						<div class="input-group-append">
-							<span class="input-group-text border-right-0">between</span>
-						</div>
-						<input class="form-control js-min" type="number" value="2" />
-						<div class="input-group-append">
-							<span class="input-group-text border-right-0">and</span>
-						</div>
-						<input class="form-control js-max" type="number" value="4" />
-						<div class="input-group-append">
-							<span class="input-group-text border-right-0">=</span>
-						</div>
-						<input class="form-control js-result" type="number" value="4" readonly />
 					</div>
 				</div>
 			</div>
@@ -55,26 +61,26 @@
 			const $max = document.querySelector('.js-max');
 			const $result = document.querySelector('.js-result');
 
-			$value.addEventListener('input', event => {
-				const value = event.target.value;
+			$value.addEventListener('input', ({ target }) => {
+				const value = target.value;
 				const min = $min.value;
 				const max = $max.value;
 
 				$result.value = clamp.default(value, min, max);
 			});
 
-			$min.addEventListener('input', event => {
+			$min.addEventListener('input', ({ target }) => {
 				const value = $value.value;
-				const min = event.target.value;
+				const min = target.value;
 				const max = $max.value;
 
 				$result.value = clamp.default(value, min, max);
 			});
 
-			$max.addEventListener('input', event => {
+			$max.addEventListener('input', ({ target }) => {
 				const value = $value.value;
 				const min = $min.value;
-				const max = event.target.value;
+				const max = target.value;
 
 				$result.value = clamp.default(value, min, max);
 			});
