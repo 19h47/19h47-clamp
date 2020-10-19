@@ -1,20 +1,15 @@
 /**
  *
- * @file webpack.common.js
+ * @file webpack.config.common.js
  * @author Jérémy Levron <jeremylevron@19h47.fr> (http://19h47.fr)
  */
-
-// Node modules
-const path = require('path');
 
 // Plugins
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
-function resolve(dir) {
-	return path.join(__dirname, '..', dir);
-}
+const resolve = require('./webpack.utils');
 
 module.exports = {
 	entry: {
@@ -32,6 +27,13 @@ module.exports = {
 		port: 3000,
 		inline: true,
 		disableHostCheck: true,
+		writeToDisk: true,
+	},
+	resolve: {
+		alias: {
+			'@': resolve('src'),
+			Utils: resolve('src/utils'),
+		},
 	},
 	module: {
 		rules: [
@@ -50,12 +52,13 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin({
-			cleanOnceBeforeBuildPatterns: [resolve('docs')],
+			cleanOnceBeforeBuildPatterns: [resolve('dist'), resolve('docs')],
 		}),
 		new HtmlWebpackPlugin({
 			filename: resolve('docs/index.html'),
 			template: resolve('index.html'),
 			inject: false,
+			minify: { removeRedundantAttributes: false },
 		}),
 		new WebpackNotifierPlugin({
 			title: 'Webpack',

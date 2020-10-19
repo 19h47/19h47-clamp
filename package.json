@@ -8,33 +8,38 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@19h47/prettier-config": "^1.0.0",
-		"@babel/core": "^7.11.6",
-		"@babel/preset-env": "^7.11.5",
+		"@babel/core": "^7.12.3",
+		"@babel/preset-env": "^7.12.1",
 		"babel-eslint": "^10.1.0",
-		"babel-jest": "^26.3.0",
+		"babel-jest": "^26.5.2",
 		"babel-loader": "^8.1.0",
 		"clean-webpack-plugin": "^3.0.0",
-		"eslint": "^7.9.0",
+		"eslint": "^7.11.0",
 		"eslint-config-airbnb-base": "^14.2.0",
-		"eslint-config-prettier": "^6.11.0",
+		"eslint-config-prettier": "^6.13.0",
 		"eslint-config-standard": "^14.1.1",
 		"eslint-loader": "^4.0.2",
-		"eslint-plugin-import": "^2.22.0",
+		"eslint-plugin-import": "^2.22.1",
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-promise": "^4.2.1",
 		"eslint-plugin-standard": "^4.0.1",
-		"html-webpack-plugin": "^4.4.1",
-		"jest": "^26.4.2",
+		"html-webpack-plugin": "^4.5.0",
+		"jest": "^26.5.3",
 		"prettier": "^2.1.2",
 		"webpack": "^4.44.2",
 		"webpack-cli": "^3.3.12",
 		"webpack-dev-server": "^3.11.0",
-		"webpack-merge": "^5.1.4",
+		"webpack-merge": "^5.2.0",
 		"webpack-notifier": "^1.8.0"
 	},
 	"scripts": {
 		"test": "jest",
-		"start": "./bin/start",
-		"prod": "./bin/production"
+		"prod": "webpack --mode=production --config webpack/webpack.config.js",
+		"dev": "webpack --mode=development --config webpack/webpack.config.js",
+		"deploy": "npm login && npm run prod && npm publish",
+		"start": "webpack-dev-server --mode=development --hot --config webpack/webpack.config.js"
+	},
+	"dependencies": {
+		"copy-webpack-plugin": "^6.2.1"
 	}
 }
