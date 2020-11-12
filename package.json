@@ -1,6 +1,6 @@
 {
 	"name": "@19h47/clamp",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Clamps a value between an upper and lower bound",
 	"main": "dist/main.js",
 	"repository": {
@@ -42,5 +42,8 @@
 		"dev": "webpack --mode=development --config webpack/webpack.config.js",
 		"deploy": "npm login && npm run prod && npm publish",
 		"start": "webpack-dev-server --mode=development --hot --config webpack/webpack.config.js"
+	},
+	"dependencies": {
+		"@babel/plugin-transform-runtime": "^7.12.1"
 	}
 }
